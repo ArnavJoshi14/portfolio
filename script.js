@@ -90,10 +90,10 @@ function initAnimations() {
     // About section animations
     gsap.fromTo(".profile-image", {
         x: -100,
-        opacity: 0
+        visibility: "hidden",
     }, {
         x: 0,
-        opacity: 1,
+        visibility: "visible",
         duration: 1,
         ease: "power3.out",
         scrollTrigger: {
@@ -104,10 +104,10 @@ function initAnimations() {
 
     gsap.fromTo(".about-content", {
         x: 100,
-        opacity: 0
+        visibility: "hidden",
     }, {
         x: 0,
-        opacity: 1,
+        visibility: "visible",
         duration: 1,
         ease: "power3.out",
         scrollTrigger: {
