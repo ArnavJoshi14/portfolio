@@ -161,34 +161,7 @@ function initAnimations() {
         }
     });
 
-    // Contact section animations
-    gsap.fromTo(".contact h2", {
-        y: 50,
-        opacity: 0
-    }, {
-        y: 0,
-        opacity: 1,
-        duration: 1,
-        ease: "power3.out",
-        scrollTrigger: {
-            trigger: ".contact",
-            start: "top 80%"
-        }
-    });
-
-    gsap.fromTo(".contact-form", {
-        y: 50,
-        opacity: 0
-    }, {
-        y: 0,
-        opacity: 1,
-        duration: 1,
-        ease: "power3.out",
-        scrollTrigger: {
-            trigger: ".contact",
-            start: "top 70%"
-        }
-    });
+    
 
     gsap.fromTo(".social-links", {
         y: 30,
@@ -239,26 +212,6 @@ document.querySelector('.resume-btn').addEventListener('mouseleave', function() 
     });
 });
 
-// Submit button animation
-document.querySelector('.submit-btn').addEventListener('click', function(e) {
-    e.preventDefault();
-    
-    // Pulse animation
-    gsap.to(this, {
-        scale: 0.95,
-        duration: 0.1,
-        yoyo: true,
-        repeat: 1,
-        ease: "power2.out",
-        onComplete: () => {
-            // Simulate form submission
-            this.innerHTML = '<i class="ph ph-check"></i> Message Sent!';
-            setTimeout(() => {
-                this.innerHTML = '<i class="ph ph-paper-plane"></i> Send Message';
-            }, 2000);
-        }
-    });
-});
 
 // Social links glow animation
 document.querySelectorAll('.social-link').forEach(link => {
@@ -428,36 +381,6 @@ navLinks.querySelectorAll('a').forEach(link => {
 handleMobileMenu();
 window.addEventListener('resize', handleMobileMenu);
 
-// Form validation
-document.querySelector('.contact-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const inputs = this.querySelectorAll('input, textarea');
-    let isValid = true;
-    
-    inputs.forEach(input => {
-        if (!input.value.trim()) {
-            isValid = false;
-            input.style.borderColor = '#ff4757';
-            setTimeout(() => {
-                input.style.borderColor = 'rgba(255, 255, 255, 0.2)';
-            }, 2000);
-        }
-    });
-    
-    if (isValid) {
-        // Simulate successful form submission
-        const submitBtn = this.querySelector('.submit-btn');
-        submitBtn.innerHTML = '<i class="ph ph-check"></i> Message Sent!';
-        submitBtn.style.background = 'linear-gradient(45deg, #00ff88, #00d4ff)';
-        
-        setTimeout(() => {
-            submitBtn.innerHTML = '<i class="ph ph-paper-plane"></i> Send Message';
-            submitBtn.style.background = 'linear-gradient(45deg, #00d4ff, #ff00ff)';
-            this.reset();
-        }, 3000);
-    }
-});
 
 // Intersection Observer for additional animations
 const observerOptions = {
